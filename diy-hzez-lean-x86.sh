@@ -16,15 +16,10 @@ sed -i "s/'UTC'/'CST-8'\n        set system.@system[-1].zonename='Asia\/Shanghai
 
 echo '添加软件包'
 
-git clone https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
-svn checkout https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus  package/lean/luci-app-ssr-plus
-svn checkout https://github.com/sypopo/openwrt-package/trunk/lienol/luci-app-passwall/  package/lienol/luci-app-passwall
-svn checkout https://github.com/sypopo/openwrt-package/trunk/package/tcping/ package/tcping
-svn checkout https://github.com/sypopo/openwrt-package/trunk/package/chinadns-ng/ package/chinadns-ng
-svn checkout https://github.com/sypopo/openwrt-package/trunk/package/brook/ package/brook
-git clone https://github.com/Leo-Jo-My/luci-theme-opentomato.git package/lean/luci-theme-opentomato
-sed -i "s/LeoJo/SyPopo/g" package/lean/luci-theme-opentomato/luasrc/view/themes/opentomato/footer.htm
+git clone https://github.com/liuran001/openwrt-packages package/openwrt-packages
+
 rm -rf package/lean/luci-theme-argon
+rm -rf package/openwrt-packages/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-theme-argon -b 18.06 package/lean/luci-theme-argon
 
 echo '定义默认值'
