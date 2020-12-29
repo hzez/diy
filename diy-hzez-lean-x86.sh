@@ -18,9 +18,14 @@ echo '添加软件包'
 
 git clone https://github.com/liuran001/openwrt-packages package/openwrt-packages
 
-rm -rf package/lean/luci-theme-argon
-rm -rf package/openwrt-packages/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-theme-argon -b 18.06 package/lean/luci-theme-argon
+for prog in `ls package/lean/`
+do
+  if [ -d package/openwrt-packages/$prog ];then
+    rm -rf package/lean/$prog
+    mv package/openwrt-packages/$prog package/lean/
+  fi
+done
+
 
 echo '定义默认值'
 cat > package/lean/default-settings/files/zzz-default-settings <<-EOF
